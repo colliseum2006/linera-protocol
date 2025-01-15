@@ -30,7 +30,7 @@ impl Contract for NativeFungibleTokenContract {
     }
 
     async fn instantiate(&mut self, state: Self::InstantiationArgument) {
-        // Validate that the application parameters were configured correctly.
+        
         assert!(
             self.runtime.application_parameters().ticker_symbol == "NAT",
             "Only NAT is accepted as ticker symbol"
@@ -121,7 +121,7 @@ impl NativeFungibleTokenContract {
         if source_chain_id == self.runtime.chain_id() {
             self.transfer(target_chain_id);
         } else {
-            // If different chain, send notify message so the app gets auto-deployed
+            
             let message = Message::Notify;
             self.runtime
                 .prepare_message(message)
