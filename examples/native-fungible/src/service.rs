@@ -47,7 +47,7 @@ struct Accounts {
 
 #[Object]
 impl Accounts {
-    // Define a field that lets you query by key
+    
     async fn entry(&self, key: AccountOwner) -> AccountEntry {
         let owner = match key {
             AccountOwner::User(owner) => owner,
@@ -92,7 +92,7 @@ impl Accounts {
     }
 }
 
-// Implements additional fields not derived from struct members of FungibleToken.
+
 #[Object]
 impl NativeFungibleTokenService {
     async fn ticker_symbol(&self) -> Result<String, async_graphql::Error> {
